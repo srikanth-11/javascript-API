@@ -1,0 +1,141 @@
+Question:1
+    How do you copy by value a composite data type?
+Answer:
+    There are 3 ways to copy by value for composite data     types.
+    1.Using the spread (...) operator
+      var a=[1,8,2,0];
+      var b=[...a];
+      console.log(a,c);//output will be [1,8,2,0] [1,8,2,0]
+      b[3]=1;
+      console.log(a,c);//output will be [1,8,2,0] [1,8,2,1]
+      Here original data doesn't changed.
+    2.Using the Object.assign() method
+      var a=[1,8,2,0];
+      var b=Object.assign([],a);
+      console.log(a,b);//output will be [1,8,2,0] [1,8,2,0]
+      b[3]=10;
+      console.log(a,b);//output will be [1,8,2,0] [1,8,2,10]
+      Here original doesn't changed.
+    3.Using the JSON.stringify() and JSON.parse() methods
+      var a=[1,8,2,0];
+      b=JSON.parse(JSON.stringify(a));
+      console.log(a,b);//output will be [1,8,2,0] [1,8,2,0]
+      b[3]=100;
+      console.log(a,b);//output will be [1,8,2,0]       [1,8,2,100] 
+      Here original doesn't changed.
+
+Question:2
+    why there is a difference in behavior for copying            contents in primitive and non primitive type
+Answer:
+     1.In primitive data types copying is done by "copy by          value", where as in Non-primitive data types copying         is done by "copy by reference"
+     2.In copy by value the data which variable holds is        passed to another copying variable.Here both the        variables refers to two different locations.
+
+Question:3
+     Use typeof in all the datatypes and check the result
+Answer:
+     1.typeof(1) is "number"
+     2.typeof(1.1) is "number"
+     3.typeof("1.1")is "string"
+     4.typeof(true) is "boolean"
+     5.typeof(null) is "object"
+     6.typeof(undefined) is "undefined"
+     7.typeof([]) is "object"
+     8.typeof({}) is "object"
+
+Question:4
+     Write  about objects and its internal representation in      Javascript
+Answer:
+     1.Objects are most important data-type and forms the        building blocks for modern JavaScript. These objects        are quite different from JavaScript’s primitive        data-types.
+     2.Objects are more complex and each object may contain        any combination of these primitive data-types as well        as reference data-types.
+     3.Objects in JavaScript may be defined as an collection        of related data, of primitive or reference types, in        the form of “key: value” pairs. These keys can be        variables or functions and are called properties and        methods respectively, in the context of an object.
+     4.An object can be created with figure brackets {…}
+       let us look at an example of a JavaScript Object :
+       let info = {
+           name : “srikanth”,
+           location : “hyderabad”,
+           date of birth : 1997
+             }
+       In the above example “name”, “location”, “date of        birth” are all “keys” and “srikanth”, “hyderabad” and        1997 are values of these keys respectively.
+       Each of these keys is referred to as properties of        the object.
+     
+Question:5
+     15 cli commands
+Answer:
+     1.pwd command
+       Use the pwd command to find out the path of the              current working directory (folder) you’re in.
+     2.cd command
+       To navigate through the Linux files and directories,         use the cd command. 
+     3.ls command
+       The ls command is used to view the contents of a             directory.
+     4.cat command
+       cat (short for concatenate) is one of the most               frequently used commands in Linux. It is used to list        the contents of a file on the standard output.
+     5.cp command
+       Use the cp command to copy files from the current            directory to a different directory.
+     6.mv command
+       The primary use of the mv command is to move files,          although it can also be used to rename files.
+     7.mkdir command
+       Use mkdir command to make a new directory.
+     8.rmdir command
+       If you need to delete a directory, use the rmdir             command.
+     9.rm command
+       The rm command is used to delete directories and the         contents within them.
+     10.touch command
+        The touch command allows you to create a blank new           file through the Linux command line.
+     11.sudo command
+        Short for “SuperUser Do”, this command enables you           to perform tasks that require administrative or root         permissions.
+     12.df command
+        Use df command to get a report on the system’s disk          space usage, shown in percentage and KBs. If you             want to see the report in megabytes, type df -m.
+     13.du command
+        If you want to check how much space a file or a              directory takes, the du (Disk Usage) command is the          answer.
+     14.head command
+        The head command is used to view the first lines of          any text file.
+     15.tail command
+        This one has a similar function to the head command,         but instead of showing the first lines, the tail             command will display the last ten lines of a text            file.
+
+Question:6
+    What is the difference between window, screen, and           document in Javascript.
+Answer:
+    1.Window is the main JavaScript global object in a           browser, also can be treated as the root of the       document object model. You can access it as window
+    2.window.screen or just screen is a small information       object about physical screen dimensions.
+    3.window.document or just document is the main object of       the potentially visible  document object model/DOM.
+    4.Document and screen is also a part of window object.
+
+
+Question:7
+    Extract and print the flag url of all the countries in       console. use the html template. 
+    https://restcountries.eu/rest/v2/all
+Answer:
+    HTML
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>GUVI App</title>
+      </head>
+        <body>
+          <script src="script.js"></script>
+        </body>
+    </html>
+    Javascript
+    //1. crete a request variable 
+
+         var request = new XMLHttpRequest();
+
+   //2. open a connection 
+
+        request.open('GET',        'https://restcountries.eu/rest/v2/all', true)
+
+   //3. send the request 
+
+        request.send();
+
+   //4. load the response 
+
+        request.onload = function () {
+        var data = JSON.parse(this.response);
+        for(i=0;i<data.length;i++)
+        console.log(data[i].flag);}
+
+
+
+
+
